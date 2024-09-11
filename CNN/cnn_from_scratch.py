@@ -14,7 +14,7 @@ import torch
 import os
 from PIL import Image
 import numpy as np
-dataset_path = "/content/lab_test_2_dataset" #getting the file from google colab menu
+dataset_path = "/content/lab_test_2_dataset" #here we get the file from google colab menu
 data = []
 labels = []
 
@@ -105,7 +105,7 @@ class MyCNN(nn.Module):
       x = torch.relu(self.conv2(x))
       x = torch.nn.functional.max_pool2d(x, kernel_size=2)
 
-      x = x.reshape(-1, 32*8*8)  # Use .reshape() instead of .view()
+      x = x.reshape(-1, 32*8*8)  # here we use .reshape() instead of .view()
       x = torch.relu(self.fc1(x))
       x = self.dropout(x)  # Specify training mode
       x = torch.relu(self.fc2(x))
