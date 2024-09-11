@@ -42,11 +42,11 @@ print("Best Hyperparameters:", best_params)
 best_rf_regressor = RandomForestRegressor(criterion='squared_error', random_state=42, **best_params)  # Initializing Random Forest Regressor with best hyperparameters
 
 
-best_rf_regressor.fit(X_train, y_train)  # Training the model on whole training set
+best_rf_regressor.fit(X_train, y_train)  # training the model on whole training set
 
-y_pred = best_rf_regressor.predict(X_test)  #Performing inference on the testing set
+y_pred = best_rf_regressor.predict(X_test)  #performing inference on the testing set
 
-mse = mean_squared_error(y_test, y_pred) # Calculating MSE
+mse = mean_squared_error(y_test, y_pred) # calculating MSE
 print("Mean Squared Error:", mse)
 
 plt.figure(figsize=(8, 6))
@@ -128,7 +128,7 @@ print(confusion_matrix(y_test, y_pred_test))
 from sklearn.ensemble import AdaBoostClassifier as SklearnAdaBoostClassifier
 from sklearn.model_selection import GridSearchCV
 
-param_grid = {'n_estimators': [50, 100, 150]}  # Hyperparameter tuning for sklearn implementation
+param_grid = {'n_estimators': [50, 100, 150]}  # hyperparameter tuning for sklearn implementation
 grid_search = GridSearchCV(estimator=SklearnAdaBoostClassifier(), param_grid=param_grid, cv=5, scoring='accuracy')
 grid_search.fit(X_train, y_train)
 
